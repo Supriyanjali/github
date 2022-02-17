@@ -1,47 +1,48 @@
 <template>
 <div>
-<Navbar/>
     <div class="profileStyle">
         <img :src="profile.avatar_url"/>
         <div class="details">
             <div class="text">
               <div class="heads">
-        <p>Name: </p>
-        <p>Id: </p>
-        <p >Location: </p>
+        <p><i>Name</i> </p>
+        <p><i>Id</i></p>
+        <p ><i>Location</i></p>
+              </div>
+               <div class="heads">
+        <p>:</p>
+        <p>:</p>
+        <p >:</p>
               </div>
         <div class="tails">
-        <p>{{profile.login}}</p>
-        <p>{{profile.id}}
-        <p>{{profile.location}}</p>
+        <p><i>{{profile.login}}</i></p>
+        <p><i>{{profile.id}}</i></p>
+        <p><i>{{profile.location}}</i></p>
         </div>
           </div>
           <div class="follow">
             <div class="followers">
-        <p >{{profile.followers}}</p>
-        <router-link :to="{ path: `/${profile.login}/followers`}"><button>FOLLOWERS</button></router-link></div>
+        <p ><i>{{profile.followers}}</i></p>
+        <router-link :to="{ path: `/${profile.login}/followers`}" v-if="profile.followers!=0"><button>FOLLOWERS</button></router-link></div>
           <div class="following">
-        <p>{{profile.following}}</p>
-        <router-link :to="{ path: `/${profile.login}/following`}"><button>FOLLOWING</button></router-link></div>
+        <p><i>{{profile.following}}</i></p>
+        <router-link :to="{ path: `/${profile.login}/following`}" v-if="profile.following!=0"><button>FOLLOWING</button></router-link></div>
         </div>
         </div>
     </div>
 </div>
 </template>
 <script>
-import Navbar from '@/components/Navbar'
+import {mapGetters, mapActions} from 'Vuex'
 export default {
-  components: {
-    Navbar
-  },
-
   mounted () {
-    this.$store.dispatch('getProfile', this.$route.params.name)
+    this.getProfile(this.$route.params.name)
   },
   computed: {
-    profile () {
-      return this.$store.state.profile
-    }
+    ...mapGetters({profile: 'profile'})
+  },
+  methods: {
+    ...mapActions({getProfile: 'getProfile'})
   }
 }
 
@@ -64,6 +65,7 @@ export default {
      padding: 20px 100px ;
      border: 2px solid gray;
      border-radius: 20px;
+     box-shadow: 5px 10px #888888;
 }
 .profileStyle .follow{
   display: flex;
@@ -102,12 +104,10 @@ export default {
 button{
   box-sizing: border-box;
   align-items:center;
-  appearance: none;
-  border: 1px solid rgb(201, 197, 197);
-  border-radius: 0.4em;
-  cursor: pointer;
-  line-height: 1;
-  padding: 5px;
-  font-size:15px;
+  padding:10px;
+  background:rgb(57, 160, 230);
+  color: white;
+  border-radius: 5px;
+  box-shadow:  2px #0e78db;
 }
 </style>

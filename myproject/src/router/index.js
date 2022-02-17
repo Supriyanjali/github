@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Users from '@/components/Users'
 import Followers from '@/components/Followers'
-import Following from '@/components/Following1'
+import Following from '@/components/Following'
 import Profile from '@/components/Profile'
 Vue.use(Router)
 

@@ -3,9 +3,9 @@
     <div class="set">
     <div><img :src="user.avatar_url" class="image"></div>
   <div class="alignment">
-      <p>Login_id: {{user.login}}</p>
+      <p><i>ID : {{user.login}}</i></p>
   </div>
-  <div class="divlast"><button class="btnlast" @click="details(user.login)" > Details </button></div>
+  <div class="divlast"><button class="btnlast" @click="details(user.login)" > <i>Details </i></button></div>
   </div>
   </div>
 </template>
@@ -33,12 +33,14 @@ export default {
     margin: 30px;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid black;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 10px #888888;
     justify-content: space-around;
 }
 .userdetail .alignment{
   align-self: center;
-  font-size: 30px;
+  font-size: 20px;
 }
 .userdetail .image{
     height: 150px;
@@ -48,16 +50,11 @@ export default {
 }
 
 .userdetail .btnlast{
-  box-sizing: border-box;
-  align-items:center;
-  margin-top: 100px;
-  appearance: none;
-  border: 2px solid black;
-  background-color: transparent;
-  border-radius: 0.6em;
-  cursor: pointer;
-  line-height: 1;
-  padding: 10px;
-  font-size: 20px;
+  margin-top:90px;
+  padding:10px;
+  background:rgb(57, 160, 230);
+  color: white;
+  border-radius: 5px;
+  box-shadow:  2px #0e78db;
 }
 </style>

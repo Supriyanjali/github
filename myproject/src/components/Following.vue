@@ -1,7 +1,7 @@
 <template>
     <div>
          <div>
-      <UserCard v-for='user in followersFxn' :key="user.login" :user="user"/>
+      <UserCard v-for='user in followingFxn' :key="user.login" :user="user"/>
      </div>
         </div>
 </template>
@@ -13,16 +13,16 @@ export default {
     UserCard
   },
   mounted () {
-    this.getFollowers(this.$route.params.name)
+    this.getFollowing(this.$route.params.name)
   },
   computed: {
-    ...mapGetters(['followers']),
-    followersFxn () {
-      return this.followers
+    ...mapGetters(['following']),
+    followingFxn () {
+      return this.following
     }
   },
   methods: {
-    ...mapActions(['getFollowers'])
+    ...mapActions(['getFollowing'])
   }
 
 }

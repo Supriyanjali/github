@@ -2,7 +2,7 @@
 <div>
     <div class="topnav">
   <router-link :to="{ path: '/'}">Home</router-link>
-  <router-link :to="{ path: '/profile/Supriyanjali'}">Profile</router-link>
+  <router-link :to="{ path: '/profile/Supriyanjali'}" v-if="isHome">Profile</router-link>
   <div class="search-container">
     <form>
       <button @click="move"><input type="text" v-model="search" placeholder="Search.." @input="userDetails">
@@ -37,6 +37,11 @@ export default {
       this.$router.push('/')
       this.$store.state.users = []
     }
+  },
+  computed: {
+    isHome () {
+      return this.$route.name === 'Users'
+    }
   }
 }
 </script>
@@ -57,17 +62,13 @@ export default {
   text-decoration: none;
   font-size: 17px;
 }
-.topnav .search-container {
-  float: right;
-}
 
 .topnav input[type=text] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
-  border: none;
+  width: 100%;
 }
-
 .topnav .search-container button {
   float: right;
   padding: 6px 10px;

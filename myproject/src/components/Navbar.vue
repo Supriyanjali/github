@@ -1,23 +1,40 @@
 <template>
 <div>
     <div class="topnav">
-  <router-link :to="{ path: '/users'}">Home</router-link>
-  <router-link :to="{ path: '/profile/1'}">Profile</router-link>
+  <router-link :to="{ path: '/'}">Home</router-link>
+  <router-link :to="{ path: '/profile/Supriyanjali'}">Profile</router-link>
   <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" v-model="search" placeholder="Search.." >
-      <button type="submit"><i class="fa fa-search"></i></button>
+    <form>
+      <button @click="move"><input type="text" v-model="search" placeholder="Search.." @input="userDetails">
+      <button type="submit"><i class="fa fa-search"></i></button></button>
     </form>
   </div>
 </div>
 </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   name: 'Navbar',
   data () {
     return {
+      users: [],
       search: ''
+    }
+  },
+  methods: {
+    async userDetails (event) {
+      this.serach = event.target.value
+      console.log('Hii')
+      await axios.get(`https://api.github.com/search/users?q=${this.search}`).then((response) => {
+        this.users = response.data.items
+        console.log(this.users)
+        this.$store.state.users = this.users
+      })
+    },
+    move () {
+      this.$router.push('/')
+      this.$store.state.users = []
     }
   }
 }

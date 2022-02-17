@@ -8,7 +8,7 @@
               <div class="heads">
         <p>Name: </p>
         <p>Id: </p>
-        <p v-if="profile.Location!=null">Location: </p>
+        <p >Location: </p>
               </div>
         <div class="tails">
         <p>{{profile.login}}</p>

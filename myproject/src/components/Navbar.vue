@@ -16,15 +16,16 @@
 import axios from 'axios'
 export default {
   name: 'Navbar',
+  props: ['search1'],
   data () {
     return {
       users: [],
-      search: ''
+      search: this.search1
     }
   },
   methods: {
     async userDetails (event) {
-      this.serach = event.target.value
+      // this.serach = event.target.value
       console.log('Hii')
       await axios.get(`https://api.github.com/search/users?q=${this.search}`).then((response) => {
         this.users = response.data.items

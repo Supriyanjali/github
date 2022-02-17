@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Navbar/>
+        <Navbar :search1=search></Navbar>
          <div>
       <UserCard v-for='user in following' :key="user.login" :user="user"/>
      </div>
@@ -13,6 +13,11 @@ export default {
   components: {
     Navbar,
     UserCard
+  },
+  data () {
+    return {
+      search: ''
+    }
   },
   mounted () {
     this.$store.dispatch('getFollowing', this.$route.params.name)

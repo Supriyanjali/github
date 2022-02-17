@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Navbar/>
+        <Navbar :search1=search></Navbar>
          <div>
       <UserCard v-for='user in followers' :key="user.login" :user="user"/>
      </div>
@@ -13,6 +13,11 @@ export default {
   components: {
     Navbar,
     UserCard
+  },
+  data () {
+    return {
+      search: ''
+    }
   },
   mounted () {
     this.$store.dispatch('getFollowers', this.$route.params.name)

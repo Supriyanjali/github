@@ -1,6 +1,7 @@
 <template>
     <div>
-    <Navbar/>
+    <!-- <Navbar/> -->
+    <Navbar :search1=search></Navbar>
          <div v-if="this.users1.length > 0">
       <UserCard v-for='user in this.users1' :key="user.id" :user="user"/>
          </div>
@@ -14,6 +15,11 @@ export default {
   components: {
     UserCard,
     Navbar
+  },
+  data () {
+    return {
+      search: ''
+    }
   },
   computed: {
     users1 () {

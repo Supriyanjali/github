@@ -7,19 +7,7 @@
     <img src="@/assets/sinchan.jpeg" style="height: 600px; ">
     </div>
 </template>
-<script>
-import UserCard from '@/components/UserCard'
-export default {
-  components: {
-    UserCard
-  },
-  computed: {
-    usersList () {
-      return this.$store.state.users
-    }
-  }
-}
-</script>
+<script src = './js/Users.js'></script>
 <style scoped>
 h1 {
   margin-left: 550px;

@@ -33,26 +33,7 @@
     </div>
 </div>
 </template>
-<script>
-import {mapGetters, mapActions} from 'Vuex'
-export default {
-  mounted () {
-    this.getProfile(this.$route.params.name)
-  },
-  computed: {
-    ...mapGetters({profile: 'profile'}),
-    followingNumber (no) {
-      if (no === 0) { return true } else { return false }
-    },
-    followersNumber (no) {
-      if (no === 0) { return true } else { return false }
-    }
-  },
-  methods: {
-    ...mapActions({getProfile: 'getProfile'})
-  }
-}
-
+<script  src = './js/Profile.js'>
 </script>
 <style scoped>
 .profileStyle{
@@ -75,7 +56,7 @@ export default {
      padding: 20px 100px ;
      border: 2px solid gray;
      border-radius: 20px;
-     box-shadow: 5px 10px #888888;
+     box-shadow: 5px 5px #888888;
 }
 .profileStyle .details .text{
   display: flex;

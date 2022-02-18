@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-<Navbar :search1=search></Navbar>
+<Navbar></Navbar>
     <router-view/>
     </div>
 </template>

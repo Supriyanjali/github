@@ -23,10 +23,10 @@
           <div class="follow">
             <div class="followers">
         <p ><i>{{profile.followers}}</i></p>
-        <router-link :to="{ path: `/${profile.login}/followers`}" v-if="profile.followers!=0"><button>FOLLOWERS</button></router-link></div>
+        <router-link :to="{ path: `/${profile.login}/followers`}"><button :disabled="profile.followers === 0">FOLLOWERS</button></router-link></div>
           <div class="following">
         <p><i>{{profile.following}}</i></p>
-        <router-link :to="{ path: `/${profile.login}/following`}" v-if="profile.following!=0"><button>FOLLOWING</button></router-link></div>
+        <router-link :to="{ path: `/${profile.login}/following`}"><button :disabled="profile.following === 0">FOLLOWING</button></router-link></div>
         </div>
         </div>
     </div>
@@ -39,7 +39,13 @@ export default {
     this.getProfile(this.$route.params.name)
   },
   computed: {
-    ...mapGetters({profile: 'profile'})
+    ...mapGetters({profile: 'profile'}),
+    followingNumber (no) {
+      if (no === 0) { return true } else { return false }
+    },
+    followersNumber (no) {
+      if (no === 0) { return true } else { return false }
+    }
   },
   methods: {
     ...mapActions({getProfile: 'getProfile'})

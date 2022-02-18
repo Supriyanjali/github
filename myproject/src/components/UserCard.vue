@@ -17,6 +17,7 @@ export default {
   methods: {
     details (name) {
       this.$router.push(`/profile/${name}`)
+      localStorage.setItem('name', name)
     }
   }
 }
@@ -35,7 +36,7 @@ export default {
     margin-right: auto;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px #888888;
     justify-content: space-around;
 }
 .userdetail .alignment{

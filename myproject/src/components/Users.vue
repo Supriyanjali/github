@@ -1,8 +1,9 @@
 <template>
-    <div v-if="this.users1.length > 0">
-      <UserCard v-for="user in users1" :key="user.id" :user="user" />
+    <div v-if="this.usersList.length > 0">
+      <UserCard v-for="user in usersList" :key="user.id" :user="user" />
     </div>
-    <div v-else class="serachbar"><h1>Search for anyone..</h1></div>
+    <div v-else class="serachbar" style="display: flex; flex-direction:column; justify-content:center; "><h1>Search for anyone..</h1>
+    <img src="@/assets/sinchan.jpeg" style="height: 600px; "></div>
 </template>
 <script>
 import UserCard from '@/components/UserCard'
@@ -11,7 +12,7 @@ export default {
     UserCard
   },
   computed: {
-    users1 () {
+    usersList () {
       return this.$store.state.users
     }
   }

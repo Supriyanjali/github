@@ -1,5 +1,5 @@
 <template>
-    <div v-if="this.usersList.length > 0">
+    <div class="allusers" v-if="this.usersList.length > 0">
       <UserCard v-for="user in usersList" :key="user.id" :user="user" />
     </div>
     <div v-else style="display: flex; flex-direction:column; justify-content:center; ">
@@ -25,5 +25,11 @@ h1 {
   margin-left: 550px;
   color: rgb(39, 121, 175);
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.allusers
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

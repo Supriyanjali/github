@@ -1,6 +1,6 @@
 <template>
-    <div>
-         <div>
+    <div  >
+         <div class="allusers">
       <UserCard v-for='user in followersFxn' :key="user.login" :user="user"/>
      </div>
         </div>
@@ -27,3 +27,11 @@ export default {
 
 }
 </script>
+<style scoped>
+.allusers
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>

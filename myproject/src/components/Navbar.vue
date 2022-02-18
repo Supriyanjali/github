@@ -2,7 +2,7 @@
 <div>
     <div class="topnav">
       <div>
-  <router-link :to="{ path: '/'} " :class="{ 'active': isHome }" @click="storeSearch" >Home</router-link>
+  <router-link :to="{ path: '/'} " :class="{ 'active': isHome }" >Home</router-link>
   <router-link :to="{ path: `/profile/${name}` }" :class="{ 'active': isProfile } " v-if="!isHome">Profile</router-link>
   </div>
   <div class="search-container" v-if="isHome">
@@ -56,26 +56,29 @@ export default {
 .topnav {
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
   background-color: rgb(68, 138, 204);
 }
 
 .topnav a {
   float: left;
-  display: block;
+  font-family:'Times New Roman', Times, serif;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 23px;
+  font-size: 20px;
+}
+.topnav a:hover {
+  background-color: rgb(191, 197, 204);
+  color: #000;
 }
 .topnav .search-container{
   margin-right:300px;
+  align-self: center;
 }
 
 .topnav input[type=text] {
   padding: 6px;
-  margin-top: 8px;
   font-size: 17px;
   margin-left:300px;
   width: 400px;

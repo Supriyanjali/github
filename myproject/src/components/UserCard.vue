@@ -58,4 +58,8 @@ export default {
   border-radius: 5px;
   box-shadow:  2px #0e78db;
 }
+.userdetail .btnlast:hover{
+  background-color: rgb(43, 134, 170);
+  color: #000;
+}
 </style>

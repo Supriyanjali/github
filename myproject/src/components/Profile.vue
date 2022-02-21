@@ -8,17 +8,27 @@
               <div class="heads">
         <p><i>Name</i> </p>
         <p><i>Id</i></p>
-        <p ><i>Location</i></p>
+        <p v-if = "profile.location !== null"><i>Location</i></p>
+        <p v-if = "profile.company !== null"><i>Company</i></p>
+        <p><i>Repos</i></p>
+        <p v-if = "profile.bio !== null"><i>Bio</i></p>
+
               </div>
                <div class="heads">
         <p>:</p>
         <p>:</p>
-        <p >:</p>
+        <p v-if = "profile.location !== null">:</p>
+        <p v-if = "profile.company !== null">:</p>
+        <p>:</p>
+        <p v-if = "profile.bio !== null">:</p>
               </div>
         <div class="tails">
         <p><i>{{profile.login}}</i></p>
         <p><i>{{profile.id}}</i></p>
         <p><i>{{profile.location}}</i></p>
+        <p><i>{{profile.company}}</i></p>
+        <p><i>{{profile.public_repos}}</i></p>
+        <p><i>{{profile.bio}}</i></p>
         </div>
           </div>
           <div class="follow">
@@ -46,7 +56,6 @@
     height: 200px;
     width: 200px;
     border-radius: 200px;
-
 }
 .profileStyle .details{
   display: flex;
@@ -60,7 +69,6 @@
 }
 .profileStyle .details .text{
   display: flex;
-  justify-content: space-evenly;
 }
 .profileStyle .details .text .heads{
   margin-right: 20px;
@@ -85,6 +93,7 @@
   box-sizing: border-box;
   align-items:center;
   padding:10px;
+  margin-left: 20px;
   background:rgb(57, 160, 230);
   color: white;
   border-radius: 5px;
